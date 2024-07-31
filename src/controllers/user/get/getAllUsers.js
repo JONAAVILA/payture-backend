@@ -1,4 +1,4 @@
-const handlerAllUsers = require("../../handlers/get/handlerAllUsers");
+const handlerAllUsers = require("../../../handlers/user/get/handlerAllUsers");
 
 const getAllUsers = async (req,res)=>{
     try {

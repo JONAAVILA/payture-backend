@@ -1,4 +1,4 @@
-const { User } = require('../../db');
+const { User } = require('../../../db');
 
 const handlerCreateUser = async (
     uuid,
@@ -39,7 +39,6 @@ const handlerCreateUser = async (
         if (response) return `User ${response.name} created`;
         return `Error, user not created`;
     } catch (error) {
-        console.error('Error creating user:', error);
         throw new Error('Error creating user');
     }
 };

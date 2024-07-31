@@ -1,4 +1,4 @@
-const handlerCreateUser = require("../../handlers/post/handlerCreateUser");
+const handlerCreateUser = require("../../../handlers/user/post/handlerCreateUser");
 const { v4: uuidv4 } = require('uuid');
 
 const createUser = async (req,res)=>{

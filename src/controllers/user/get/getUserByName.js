@@ -1,4 +1,4 @@
-const handlerUserByName = require("../../handlers/get/handlerUserByName")
+const handlerUserByName = require("../../../handlers/user/get/handlerUserByName")
 
 
 const getUserByName = async (req,res)=>{

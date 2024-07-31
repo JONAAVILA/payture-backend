@@ -1,4 +1,4 @@
-const { User } = require('../../db');
+const { User } = require('../../../db');
 
 const handlerUserByName = async (name)=>{
     try {
@@ -7,10 +7,10 @@ const handlerUserByName = async (name)=>{
                 name:name
             }
         })
-        if(!user) throw new Error(`User ${name} not found`)
+        if(!user) throw new Error(`User ${name} not found`) 
         return user
     } catch (error) {
-        return error
+        return error.message
     }
 }
 
