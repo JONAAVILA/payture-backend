@@ -1,5 +1,8 @@
 import handlerCreateUser from '../../../handlers/user/post/handlerCreateUser.js'
+import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
+
+const SALT_ROUNDS = Number(process.env)
 
 const createUser = async (req,res)=>{
     try {
@@ -15,13 +18,15 @@ const createUser = async (req,res)=>{
             country
         } = req.body
 
+        const passwordHashed = await bcrypt.hashSync(password,SALT_ROUNDS)
+
         const response = await handlerCreateUser(
             uuid,
             name,
             surname,
             image,
             email,
-            password,
+            passwordHashed,
             address,
             state,
             country

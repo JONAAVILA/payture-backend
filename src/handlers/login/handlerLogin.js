@@ -1,26 +1,23 @@
 import { models } from '../../db.js';
 import { schema } from './schema.js';
+import bcrypt from 'bcrypt'
 const User = models.User
-const SALT_ROUNDS = process.env
 
 const handlerLogin = async (password,name)=>{
     try {
-        const { error, value } = schema.validate({
+        const { error } = schema.validate({
             name:name,
             password:password
         })
 
         if(error) return false
-        else{
-            const access = await User.findOne({
-                where:{
-                    name:name,
-                    password:password
-                }
-            })
-            if(!access) return false
-            return true
-        }
+        const user = await User.findOne({
+            where:{
+                name:name,
+            }
+        })
+        const passwordCompare = await bcrypt.compare(password,user.password)
+        return passwordCompare
     } catch (error) {
         return false
     }

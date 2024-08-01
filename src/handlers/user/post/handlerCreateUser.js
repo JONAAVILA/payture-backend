@@ -7,7 +7,7 @@ const handlerCreateUser = async (
     surname,
     image,
     email,
-    password,
+    passwordHashed,
     address,
     state,
     country
@@ -16,7 +16,7 @@ const handlerCreateUser = async (
         !uuid ||
         !name ||
         !surname ||
-        !password ||
+        !passwordHashed ||
         !image ||
         !email ||
         !address ||
@@ -31,7 +31,7 @@ const handlerCreateUser = async (
             surname: surname,
             image: image,
             email: email,
-            password: password,
+            password: passwordHashed,
             address: address,
             state: state,
             country: country
