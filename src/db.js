@@ -23,6 +23,9 @@ const Message = messageModel(sequelize)
 const Notificatio = notificatioModel(sequelize)
 const Stories = storiesModel(sequelize)
 
+User.hasMany(Stories,{foreingKey:'UserId'})
+Stories.belongsTo(User,{foreingKey:'UserId'})
+
 const models = {
   ...sequelize.models,
   conn: sequelize,

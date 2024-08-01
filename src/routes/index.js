@@ -4,6 +4,7 @@ import getAllUsers from "../controllers/user/get/getAllUsers.js";
 import getUserByName from "../controllers/user/get/getUserByName.js";
 import getUserById from "../controllers/user/get/getUserById.js";
 import getlogin from "../controllers/login/login.js";
+import createStorie from "../controllers/stories/post/createStorie.js";
 
 const router = Router()
 
@@ -13,5 +14,6 @@ router.get('/users/:id',getUserById)
 router.get('/login',getlogin)
 
 router.post('/login/signin',createUser)
+router.post('/stories/create',createStorie)
 
 export default router;
