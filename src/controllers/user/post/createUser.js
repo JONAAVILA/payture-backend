@@ -1,5 +1,5 @@
-const handlerCreateUser = require("../../../handlers/user/post/handlerCreateUser");
-const { v4: uuidv4 } = require('uuid');
+import handlerCreateUser from '../../../handlers/user/post/handlerCreateUser.js'
+import { v4 as uuidv4 } from 'uuid';
 
 const createUser = async (req,res)=>{
     try {
@@ -32,4 +32,4 @@ const createUser = async (req,res)=>{
     }
 }
 
-module.exports = createUser;
+export default createUser;

@@ -1,4 +1,5 @@
-const { User } = require('../../../db');
+import { models } from "../../../db.js";
+const User = models.User
 
 const handlerCreateUser = async (
     uuid,
@@ -43,4 +44,4 @@ const handlerCreateUser = async (
     }
 };
 
-module.exports = handlerCreateUser;
+export default handlerCreateUser;

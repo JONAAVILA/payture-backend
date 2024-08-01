@@ -1,5 +1,4 @@
-const handlerUserById = require("../../../handlers/user/get/handlerUserById")
-
+import handlerUserById from "../../../handlers/user/get/handlerUserById.js";
 
 const getUserById = async (req,res)=>{
     try {
@@ -11,4 +10,4 @@ const getUserById = async (req,res)=>{
     }
 }
 
-module.exports = getUserById
+export default getUserById

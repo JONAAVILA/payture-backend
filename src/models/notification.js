@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize')
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize)=>{
-    sequelize.define('notification',{
+export default (sequelize)=>{
+    const Notification = sequelize.define('Notification',{
         description:{
             type:DataTypes.STRING,
             allowNull:false
@@ -11,4 +11,5 @@ module.exports = (sequelize)=>{
             defaultValue:true
         }
     })
+    return Notification
 }

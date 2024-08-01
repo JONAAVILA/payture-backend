@@ -1,5 +1,7 @@
-const server = require("./src/server");
-const { conn } = require('./src/db.js');
+import server from './src/server.js';
+import { models } from './src/db.js';
+
+const conn = models.conn
 const PORT = process.env.PORT || 3000;
 
 conn.sync({ force: true }).then(() => {

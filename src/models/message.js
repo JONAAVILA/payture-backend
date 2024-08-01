@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize')
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize)=>{
-    sequelize.define('message',{
+export default (sequelize)=>{
+    const Message = sequelize.define('Message',{
         text:{
             type:DataTypes.TEXT,
             allowNull:false
@@ -11,4 +11,5 @@ module.exports = (sequelize)=>{
             defaultValue:true
         }
     })
+    return Message
 }

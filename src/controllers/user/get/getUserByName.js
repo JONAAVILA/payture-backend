@@ -1,5 +1,4 @@
-const handlerUserByName = require("../../../handlers/user/get/handlerUserByName")
-
+import handlerUserByName from "../../../handlers/user/get/handlerUserByName.js";
 
 const getUserByName = async (req,res)=>{
     try {
@@ -11,4 +10,4 @@ const getUserByName = async (req,res)=>{
     }
 }
 
-module.exports = getUserByName;
+export default getUserByName;

@@ -1,35 +1,31 @@
-require("dotenv").config();
-const { Sequelize } = require("sequelize");
+import { config } from 'dotenv';
+import { Sequelize } from 'sequelize';
+import userModel from './models/user.js'
+import messageModel from './models/message.js'
+import notificatioModel from './models/notification.js'
+import storiesModel from './models/stories.js'
 
-const fs = require('fs');
-const path = require('path');
+config()
+
 const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
+  DB_USER,
+  DB_PASSWORD,
+  DB_HOST,
+} = process.env
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/payture`, {
   logging: false, 
   native: false, 
-});
-const basename = path.basename(__filename);
+})
 
-const modelDefiners = [];
+const User = userModel(sequelize)
+const Message = messageModel(sequelize)
+const Notificatio = notificatioModel(sequelize)
+const Stories = storiesModel(sequelize)
 
-fs.readdirSync(path.join(__dirname, '/models'))
-  .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
-  .forEach((file) => {
-    modelDefiners.push(require(path.join(__dirname, '/models', file)));
-  });
-
-
-modelDefiners.forEach(model => model(sequelize));
-
-let entries = Object.entries(sequelize.models);
-let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
-sequelize.models = Object.fromEntries(capsEntries);
-
-
-module.exports = {
+const models = {
   ...sequelize.models,
   conn: sequelize,
-};
+}
+
+export { models }

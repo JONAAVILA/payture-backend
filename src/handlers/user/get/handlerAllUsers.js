@@ -1,4 +1,5 @@
-const { User } = require('../../../db');
+import { models } from "../../../db.js";
+const User = models.User
 
 const handlerAllUsers = async ()=>{
     try {
@@ -11,4 +12,4 @@ const handlerAllUsers = async ()=>{
     }
 }
 
-module.exports = handlerAllUsers
+export default handlerAllUsers

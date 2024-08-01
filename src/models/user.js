@@ -1,7 +1,7 @@
-const DataTypes = require('sequelize')
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize)=>{
-    sequelize.define('User',{
+export default (sequelize)=>{
+    const User = sequelize.define('User',{
         id: {
             type: DataTypes.UUID,
             primaryKey: true,
@@ -43,4 +43,5 @@ module.exports = (sequelize)=>{
             defaultValue:true
         }
     })
+    return User
 }

@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize')
+import { DataTypes } from 'sequelize';
 
-module.exports = (sequelize)=>{
-    sequelize.define('stories',{
+export default (sequelize)=>{
+    const Stories = sequelize.define('Stories',{
         url:{
             type:DataTypes.STRING,
             allowNull:false
@@ -19,4 +19,5 @@ module.exports = (sequelize)=>{
             allowNull:false
         }
     })
+    return Stories
 }

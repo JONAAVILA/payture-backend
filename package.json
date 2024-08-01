@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Payture app",
   "main": "index.js",
+  "type": "module",
   "engines": {
     "npm": "10.5.2"
   },
