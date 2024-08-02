@@ -1,9 +1,20 @@
 import { models } from "../../../db.js";
-const User = models.User
+const { User,Stories } = models
 
 const handlerAllUsers = async ()=>{
     try {
-        const users = await User.findAll()
+        const users = await User.findAll({
+            where:{
+                active:true
+            },
+            attributes:[
+                'id',
+                'name',
+                'surname',
+                'image'
+            ],
+            include:[Stories]
+        })
         if(!users) throw new Error("Users not found")
         return users
     } catch (error) {
