@@ -1,4 +1,5 @@
 import { models } from "../../../db.js";
+import { schema } from "../../schema.js";
 const User = models.User
 
 const handlerCreateUser = async (
@@ -12,17 +13,20 @@ const handlerCreateUser = async (
     state,
     country
 ) => {
-    if (
-        !uuid ||
-        !name ||
-        !surname ||
-        !passwordHashed ||
-        !image ||
-        !email ||
-        !address ||
-        !state ||
-        !country
-    ) throw new Error('Parameters are missing');
+
+    const { error } = await schema.validate({
+        uuid:uuid,
+        name:name,
+        surname:surname,
+        image:image,
+        email:email,
+        password:passwordHashed,
+        address:address,
+        state:state,
+        country:country
+    })
+
+    if (error) throw new Error('Parameters are missing or wrong');
 
     try {
         const response = await User.create({

@@ -1,5 +1,5 @@
 import { models } from '../../db.js';
-import { schema } from './schema.js';
+import { schema } from '../schema.js';
 import bcrypt from 'bcrypt'
 const User = models.User
 
