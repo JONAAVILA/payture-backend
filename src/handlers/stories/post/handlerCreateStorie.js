@@ -1,8 +1,17 @@
 import { models } from "../../../db.js";
+import { schema } from "../../schema.js";
 const { Stories } = models
 
 const handlerCreateStorie = async (id, url, tittle, description)=>{
     try {
+        const { error } = await schema.validate({
+            uuid:id,
+            image:url,
+            tittle:tittle,
+            description:description
+        })
+        console.log(error)
+        if(error) return 'invalid o missing parameters'
         const storie = await Stories.create({
             url:url,
             tittle:tittle,

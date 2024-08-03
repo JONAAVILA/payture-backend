@@ -33,7 +33,13 @@ export const schema = Joi.object({
     country:Joi.string()
         .min(3)
         .max(50)
-        .pattern(new RegExp('^[a-zA-Z .]+$'))
+        .pattern(new RegExp('^[a-zA-Z .]+$')),
+    tittle:Joi.string()
+        .min(10)
+        .max(50),
+    description:Joi.string()
+        .min(20)
+        .max(80)
 }).or( 
        'uuid',
        'name',
@@ -43,5 +49,7 @@ export const schema = Joi.object({
        'email',
        'address',
        'state',
-       'country'
+       'country',
+       'tittle',
+       'description'
     )
