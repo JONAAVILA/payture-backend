@@ -9,6 +9,7 @@ const createUser = async (req,res)=>{
         const uuid = uuidv4()
         const {
             name,
+            userName,
             surname,
             image,
             email,
@@ -23,6 +24,7 @@ const createUser = async (req,res)=>{
         const response = await handlerCreateUser(
             uuid,
             name,
+            userName,
             surname,
             image,
             email,

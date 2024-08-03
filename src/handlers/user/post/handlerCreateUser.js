@@ -5,6 +5,7 @@ const User = models.User
 const handlerCreateUser = async (
     uuid,
     name,
+    userName,
     surname,
     image,
     email,
@@ -17,6 +18,7 @@ const handlerCreateUser = async (
     const { error } = await schema.validate({
         uuid:uuid,
         name:name,
+        userName:userName,
         surname:surname,
         image:image,
         email:email,
@@ -32,6 +34,7 @@ const handlerCreateUser = async (
         const response = await User.create({
             id: uuid,
             name: name,
+            userName:userName,
             surname: surname,
             image: image,
             email: email,

@@ -7,6 +7,8 @@ export const schema = Joi.object({
         .min(3)
         .max(30)
         .pattern(new RegExp('^[a-zA-Z .-_]+$')),
+    userName:Joi.string()
+        .pattern(new RegExp('^[a-zA-Z .-_!@#\$%\^&\*]+$')),
     surname:Joi.string()
         .min(3)
         .max(30)
