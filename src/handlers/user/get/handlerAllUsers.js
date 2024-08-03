@@ -10,6 +10,7 @@ const handlerAllUsers = async ()=>{
             attributes:[
                 'id',
                 'name',
+                'userName',
                 'surname',
                 'image'
             ],

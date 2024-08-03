@@ -13,6 +13,7 @@ const handlerUserById = async (id)=>{
             },
             attributes:[
                 'name',
+                'userName',
                 'surname',
                 'image'
             ],

@@ -3,17 +3,17 @@ import { schema } from '../schema.js';
 import bcrypt from 'bcrypt'
 const User = models.User
 
-const handlerLogin = async (password,name)=>{
+const handlerLogin = async (password,userName)=>{
     try {
         const { error } = schema.validate({
-            name:name,
+            userName:userName,
             password:password
         })
 
         if(error) return false
         const user = await User.findOne({
             where:{
-                name:name,
+                userName:userName,
             }
         })
         const passwordCompare = await bcrypt.compare(password,user.password)

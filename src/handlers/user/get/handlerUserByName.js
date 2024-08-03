@@ -15,6 +15,7 @@ const handlerUserByName = async (name)=>{
             attributes:[
                 'id',
                 'name',
+                'userName',
                 'surname',
                 'image',
                 'state',
