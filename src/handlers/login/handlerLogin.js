@@ -1,7 +1,8 @@
 import { models } from '../../db.js';
 import { schema } from '../schema.js';
 import bcrypt from 'bcrypt'
-const User = models.User
+
+const { User } = models
 
 const handlerLogin = async (password,userName)=>{
     try {

@@ -1,4 +1,5 @@
 import { models } from "../../../db.js";
+
 const { User,Stories } = models
 
 const handlerAllUsers = async ()=>{

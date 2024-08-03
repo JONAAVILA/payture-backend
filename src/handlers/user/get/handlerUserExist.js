@@ -1,5 +1,6 @@
 import { models } from '../../../db.js';
 import { schema } from '../../schema.js';
+
 const { User } = models;
  
 const handlerUserExist = async (userName)=>{
@@ -7,7 +8,6 @@ const handlerUserExist = async (userName)=>{
         const { error } = await schema.validate({
             userName:userName
         })
-        console.log(error)
         if(error) return 'invalid'
 
         const match = await User.findOne({
