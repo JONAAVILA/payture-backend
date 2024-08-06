@@ -11,6 +11,7 @@ const {
   DB_USER,
   DB_PASSWORD,
   DB_HOST,
+  DB_DEPLOYD
 } = process.env
 
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/payture`, {
@@ -18,7 +19,7 @@ const {
 //   native: false, 
 // })
 
-const sequelize = new Sequelize(payture02, {
+const sequelize = new Sequelize(DB_DEPLOYD, {
   logging: false,
   native: false,
   dialectOptions: {
