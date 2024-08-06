@@ -18,7 +18,7 @@ const {
 //   native: false, 
 // })
 
-const sequelize = new Sequelize(payture, {
+const sequelize = new Sequelize(payture02, {
   logging: false,
   native: false,
   dialectOptions: {
