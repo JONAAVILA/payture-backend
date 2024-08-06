@@ -10,8 +10,7 @@ config()
 const {
   DB_USER,
   DB_PASSWORD,
-  DB_HOST,
-  DB_DEPLOYD
+  DB_HOST
 } = process.env
 
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/payture`, {
@@ -19,14 +18,10 @@ const {
 //   native: false, 
 // })
 
-const sequelize = new Sequelize(DB_DEPLOYD, {
-  logging: false,
-  native: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-    },
-  },
+const sequelize = new Sequelize(DB_HOST, {
+  dialect: 'postgres', // Cambia esto según tu base de datos (mysql, sqlite, etc.)
+  protocol: 'postgres', // Cambia esto según tu base de datos
+  logging: false, // O true si quieres ver las consultas SQL
 });
 
 const User = userModel(sequelize)
