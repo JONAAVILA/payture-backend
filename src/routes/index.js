@@ -11,10 +11,10 @@ const router = Router()
 
 router.get('/users',getAllUsers)
 router.get('/users/name',getUserByName)
-router.get('/users/match',getUserExist)
 router.get('/users/:id',getUserById)
 router.get('/login',getlogin)
 
+router.post('/users/match',getUserExist)
 router.post('/login/signin',createUser)
 router.post('/stories/create',createStorie)
 

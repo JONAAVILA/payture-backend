@@ -13,10 +13,20 @@ const {
   DB_HOST,
 } = process.env
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/payture`, {
-  logging: false, 
-  native: false, 
-})
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/payture`, {
+//   logging: false, 
+//   native: false, 
+// })
+
+const sequelize = new Sequelize(payture, {
+  logging: false,
+  native: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+    },
+  },
+});
 
 const User = userModel(sequelize)
 const Message = messageModel(sequelize)
