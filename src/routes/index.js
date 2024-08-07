@@ -5,7 +5,7 @@ import getUserByName from "../controllers/user/get/getUserByName.js";
 import getUserById from "../controllers/user/get/getUserById.js";
 import getlogin from "../controllers/login/login.js";
 import createStorie from "../controllers/stories/post/createStorie.js";
-import getUserExist from "../controllers/user/get/getUserExist.js";
+import getUserExist from "../controllers/user/post/getUserExist.js";
 
 const router = Router()
 

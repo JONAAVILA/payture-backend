@@ -3,16 +3,16 @@ import { schema } from '../../schema.js';
 
 const { User } = models;
  
-const handlerUserExist = async (userName)=>{
+const handlerUserExist = async (email)=>{
     try {
         const { error } = await schema.validate({
-            userName:userName
+            email:email
         })
-        if(error) return 'invalid'
+        if(error) return 'Invalid id'
 
         const match = await User.findOne({
             where:{
-                userName:userName
+                email:email
             }
         })
         if(!match) return false

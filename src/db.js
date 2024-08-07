@@ -21,16 +21,11 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 // const sequelize = new Sequelize(payture, {
 //   logging: false,
 //   native: false,
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//     },
-//   },
 // });
 
 const User = userModel(sequelize)
 const Message = messageModel(sequelize)
-const Notificatio = notificatioModel(sequelize)
+const Notification = notificatioModel(sequelize)
 const Stories = storiesModel(sequelize)
 
 User.hasMany(Stories,{foreingKey:'UserId'})

@@ -1,6 +1,4 @@
 import { models } from "../../../db.js";
-import sendMail from "../../../emails/send.js";
-import token from "../../../emails/triggerToken.js";
 import { schema } from "../../schema.js";
 const User = models.User
 
@@ -46,8 +44,6 @@ const handlerCreateUser = async (
             country: country
         });
         if (response){
-            const currentToken = token()
-            sendMail(email,currentToken)
             return `User ${response.name} created`
         }
         return `Error, user not created`;
