@@ -1,55 +1,16 @@
-import { models } from "../../db.js";
-import { schema } from "../schema.js";
-const User = models.User
+import { models } from '../../db.js';
+const { User } = models;
 
-const handlerCreateUser = async (
-    uuid,
-    name,
-    userName,
-    surname,
-    image,
-    email,
-    passwordHashed,
-    address,
-    state,
-    country
-) => {
-
-    const { error } = await schema.validate({
-        uuid:uuid,
+const handleCreateUser = async (id,name,userName,email,password )=>{
+    const response = await User.create({
+        id:id,
         name:name,
         userName:userName,
-        surname:surname,
-        image:image,
         email:email,
-        password:passwordHashed,
-        address:address,
-        state:state,
-        country:country
+        password:password
     })
+    if(!response) throw new Error('Error to create')
+    return 'User created'
+}
 
-    if (error) throw new Error('Parameters are missing or wrong');
-
-    try {
-        const response = await User.create({
-            id: uuid,
-            name: name,
-            userName:userName,
-            surname: surname,
-            image: image,
-            email: email,
-            password: passwordHashed,
-            address: address,
-            state: state,
-            country: country
-        });
-        if (response){
-            return `User ${response.name} created`
-        }
-        return `Error, user not created`;
-    } catch (error) {
-        throw new Error('Error creating user')
-    }
-};
-
-export default handlerCreateUser;
+export default handleCreateUser

@@ -16,11 +16,9 @@ export default (sequelize)=>{
         },
         surname:{
             type:DataTypes.STRING,
-            allowNull:false
         },
         image:{
             type:DataTypes.STRING,
-            allowNull:false
         },
         email:{
             type:DataTypes.STRING,
@@ -32,15 +30,12 @@ export default (sequelize)=>{
         },
         address:{
             type:DataTypes.STRING,
-            allowNull:false
         },
         state:{
             type:DataTypes.STRING,
-            allowNull:false
         },
         country:{
             type:DataTypes.STRING,
-            allowNull:false
         },
         active:{
             type:DataTypes.BOOLEAN,
