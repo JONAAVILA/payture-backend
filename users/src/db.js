@@ -1,6 +1,7 @@
 import { config } from 'dotenv';
 import { Sequelize } from 'sequelize';
 import userModel from './models/user.js';
+import tokenModel from './models/token.js';
 
 config()
 
@@ -21,6 +22,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 // })
 
 const User = userModel(sequelize)
+const Token = tokenModel(sequelize)
 
 const models = {
   ...sequelize.models,

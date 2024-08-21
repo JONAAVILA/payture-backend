@@ -3,7 +3,7 @@ import { Router } from "express";
 // import getUserById from '../controllers/get/getUserById.js';
 // import getUserByName from '../controllers/get/getUserByName.js';
 import getlogin from '../controllers/get/getLogin.js';
-import getUserExist from '../controllers/post/getUserExist.js';
+import checkEmail from '../controllers/post/checkEmail.js';
 import updateUsers from '../controllers/post/updateUsers.js';
 import createUser from "../controllers/post/createUser.js";
 import checkUsers from "../controllers/post/checkUsers.js";
@@ -17,7 +17,7 @@ router.get('/login',getlogin)
 
 router.post('/users/check',checkUsers)
 router.post('/users/create',createUser)
-router.post('/users/match',getUserExist)
+router.post('/users/match',checkEmail)
 router.post('/login/signin',updateUsers)
 
 export default router;

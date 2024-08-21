@@ -4,12 +4,12 @@ import { schema } from '../schema.js';
 
 const { User } = models;
  
-const handlerUserExist = async (email)=>{
+const handlerCheckEmail = async (email)=>{
     try {
-        const { error } = await schema.validate({
+        const { error } = schema.validate({
             email:email
         })
-        if(error) throw new Error('Invalid email') 
+        if(error) throw new Error(false) 
 
         const match = await User.findOne({
             where:{
@@ -25,4 +25,4 @@ const handlerUserExist = async (email)=>{
     }
 }
 
-export default handlerUserExist;
+export default handlerCheckEmail;
