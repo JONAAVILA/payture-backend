@@ -2,7 +2,7 @@ import express from "express";
 import router from "./routes/index.js";
 import morgan from "morgan";
 import cors from 'cors';
-import { limiter } from "./limiter.js";
+import { limiter } from './utils/limiter.js';
 
 const server = express();
 
