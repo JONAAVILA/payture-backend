@@ -1,8 +1,8 @@
-import handleCheckUsers from "../../handlers/get/handleCheckUsers.js"
+import handleCheckUsers from "../../handlers/post/handleCheckUsers.js"
 
 const checkUsers = async (req,res)=>{
     try {
-        const { userName } = req.query
+        const { userName } = req.body
         const check = await handleCheckUsers(userName)
         res.status(200).json(check)
     } catch (error) {
