@@ -24,6 +24,9 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 const User = userModel(sequelize)
 const Token = tokenModel(sequelize)
 
+User.hasMany(Token,{foreignKey:'userId'})
+Token.belongsTo(User,{foreignKey:'userId'})
+
 const models = {
   ...sequelize.models,
   conn: sequelize,

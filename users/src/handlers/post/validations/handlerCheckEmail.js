@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize';
-import { models } from '../../db.js';
-import { schema } from '../schema.js';
+import { models } from '../../../db.js';
+import { schema } from '../../schema.js';
 
 const { User } = models;
  

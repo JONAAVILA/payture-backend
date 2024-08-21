@@ -1,4 +1,4 @@
-import handleCheckUsers from "../../handlers/post/handleCheckUsers.js"
+import handleCheckUsers from '../../../handlers/post/validations/handleCheckUsers.js';
 
 const checkUsers = async (req,res)=>{
     try {

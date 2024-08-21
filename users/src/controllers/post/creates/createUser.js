@@ -1,4 +1,4 @@
-import handleCreateUser from "../../handlers/post/handlerCreateUser.js";
+import handleCreateUser from '../../../handlers/post/creates/handlerCreateUser.js';
 import { v4 as uuidv4 } from 'uuid';
 
 const createUser = async (req,res)=>{

@@ -1,4 +1,4 @@
-import handlerCheckEmail from "../../handlers/post/handlerCheckEmail.js";
+import handlerCheckEmail from '../../../handlers/post/validations/handlerCheckEmail.js';
 
 const checkEmail = async (req,res) =>{
     try {

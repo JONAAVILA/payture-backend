@@ -1,5 +1,5 @@
-import { models } from "../../db.js";
-import { schema } from "../schema.js";
+import { models } from "../../../db.js";
+import { schema } from "../../schema.js";
 const { User } = models
 
 const handleCheckUsers = async (userName)=>{

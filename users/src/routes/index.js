@@ -3,10 +3,10 @@ import { Router } from "express";
 // import getUserById from '../controllers/get/getUserById.js';
 // import getUserByName from '../controllers/get/getUserByName.js';
 import getlogin from '../controllers/get/getLogin.js';
-import checkEmail from '../controllers/post/checkEmail.js';
-import updateUsers from '../controllers/post/updateUsers.js';
-import createUser from "../controllers/post/createUser.js";
-import checkUsers from "../controllers/post/checkUsers.js";
+import checkEmail from '../controllers/post/validations/checkEmail.js';
+import updateUsers from '../controllers/post/updates/updateUsers.js';
+import createUser from "../controllers/post/creates/createUser.js";
+import checkUsers from "../controllers/post/validations/checkUsers.js";
 
 const router = Router()
 

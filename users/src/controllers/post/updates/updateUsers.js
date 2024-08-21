@@ -1,4 +1,4 @@
-import handlerCreateUser from '../../handlers/post/handlerUpdateUser.js';
+import handlerUpdateUser from '../../../handlers/post/updates/handlerUpdateUser.js';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -21,7 +21,7 @@ const updateUsers = async (req,res)=>{
 
         const passwordHashed = await bcrypt.hashSync(password,SALT_ROUNDS)
 
-        const response = await handlerCreateUser(
+        const response = await handlerUpdateUser(
             uuid,
             name,
             userName,

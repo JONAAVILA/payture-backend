@@ -8,7 +8,11 @@ export default (sequelize)=>{
         },
         expiresAt:{
             type:DataTypes.DATE,
-            allowNull:false
+            defaultValue:DataTypes.NOW
+        },
+        active:{
+            type:DataTypes.BOOLEAN,
+            defaultValue:true
         }
     })
     return Token
