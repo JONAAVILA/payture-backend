@@ -8,7 +8,7 @@ export default (sequelize)=>{
         },
         expiresAt:{
             type:DataTypes.DATE,
-            defaultValue:DataTypes.NOW
+            allowNull:false
         },
         active:{
             type:DataTypes.BOOLEAN,

@@ -6,10 +6,10 @@ import { limiter } from './utils/limiter.js';
 
 const server = express();
 
-server.use(limiter)
 server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
+server.use(limiter)
 
 server.use(router);
 

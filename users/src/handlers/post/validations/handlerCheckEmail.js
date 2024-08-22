@@ -9,7 +9,7 @@ const handlerCheckEmail = async (email)=>{
         const { error } = schema.validate({
             email:email
         })
-        if(error) throw new Error(false) 
+        if(error) return false
 
         const match = await User.findOne({
             where:{
@@ -21,7 +21,7 @@ const handlerCheckEmail = async (email)=>{
         if(match) return false
         return true
     } catch (error) {
-        return {error:error.message}
+        return false
     }
 }
 
