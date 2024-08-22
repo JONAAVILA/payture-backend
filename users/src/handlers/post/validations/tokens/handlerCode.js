@@ -6,9 +6,8 @@ const { Token } = models
 
 const handlerCode = async ()=>{
     const now = new Date()
+    const expire = addMinutes(now,15)
     const active = await Token.findAll()
-    
-    console.log(active,now)
 
     if(active.length > 0){
         active.map(t => {
@@ -23,13 +22,10 @@ const handlerCode = async ()=>{
         })
     }
 
-
-  
-
     const currentToken = triggerToken()
     Token.create({
         code:currentToken,
-        expiresAt:now
+        expiresAt:expire
     })
     // await sendMail(email,correntToken)
 
