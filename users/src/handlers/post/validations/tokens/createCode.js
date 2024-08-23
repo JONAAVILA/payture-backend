@@ -4,7 +4,7 @@ import triggerToken from '../../../../utils/triggerToken.js';
 import { addMinutes } from 'date-fns';
 const { Token } = models
 
-const handlerCode = async (email)=>{
+const createCode = async (email)=>{
     const now = new Date()
     const expire = addMinutes(now,15)
     const active = await Token.findAll()
@@ -32,4 +32,4 @@ const handlerCode = async (email)=>{
     return true
 }
 
-export default handlerCode
+export default createCode

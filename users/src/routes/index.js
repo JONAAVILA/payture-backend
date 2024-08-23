@@ -7,7 +7,7 @@ import checkEmail from '../controllers/post/validations/checkEmail.js';
 import updateUsers from '../controllers/post/updates/updateUsers.js';
 import createUser from "../controllers/post/creates/createUser.js";
 import checkUsers from "../controllers/post/validations/checkUsers.js";
-import checkToken from "../controllers/post/validations/checkToken.js";
+import sendToken from "../controllers/post/validations/sendToken.js";
 
 const router = Router()
 
@@ -15,11 +15,11 @@ const router = Router()
 // router.get('/users/name',getUserByName)
 // router.get('/users/:id',getUserById)
 router.get('/login',getlogin)
+router.get('/login/singin/token',sendToken)
 
 router.post('/users/check',checkUsers)
 router.post('/users/create',createUser)
 router.post('/users/match',checkEmail)
 router.post('/login/signin',updateUsers)
-router.post('/login/singin/token',checkToken)
 
 export default router;
