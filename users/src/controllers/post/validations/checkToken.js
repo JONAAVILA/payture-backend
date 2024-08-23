@@ -2,8 +2,9 @@ import handlerCheckToken from "../../../handlers/post/validations/tokens/handler
 
 const checkToken = async (req,res)=>{
     try {
-        // const token = req.headers['authorization'];
-        const response = await handlerCheckToken()
+        const headers = req.headers['authorization'];
+        const token = headers.split(" ")[1]
+        const response = await handlerCheckToken(token)
         res.status(200).json(response)
     } catch (error) {
         res.status(400).json({error:error.message})

@@ -1,19 +1,15 @@
-// import { jwt } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import handlerCode from './handlerCode.js';
 
-// const { SECRET_KEY } = process.env
-const encoded = {
-    email:'catalinaozzy@gmail.com'
-}
+const { SECRET_KEY } = process.env
 
-const handlerCheckToken = async ()=>{
+const handlerCheckToken = async (token)=>{
     try {
-        // jwt.verify(token.split(' ')[1],SECRET_KEY, async (err,encoded)=>{
-        //     if(err) throw new Error('Invalid access');  
-        // })
-        const { email } = encoded
-        const codes = await handlerCode()
-        if(codes) return 'Token was send'
+        jwt.verify(token,SECRET_KEY, async (err,encoded)=>{
+            if(err) throw new Error('Invalid access');  
+            const codes = await handlerCode(encoded.email)
+            if(codes) return 'Token was send'
+        })
     } catch (error) {
         return {error:error.message}
     }
