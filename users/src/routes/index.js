@@ -20,8 +20,8 @@ router.get('/login/singin/token',sendToken)
 
 router.post('/users/check',checkUsers)
 router.post('/users/check/code',checkCode)
+router.post('/users/check/email',checkEmail)
 router.post('/users/create',createUser)
-router.post('/users/match',checkEmail)
 router.post('/login/signin',updateUsers)
 
 export default router;
