@@ -1,4 +1,4 @@
-import handlerSendCode from "../../../handlers/post/creates/code/handlerSendToken.js";
+import handlerSendCode from "../../../handlers/post/creates/code/handlerSendCode.js";
 
 const sendCode = async (req,res)=>{
     try {
