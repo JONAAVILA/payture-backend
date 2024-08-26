@@ -1,17 +1,17 @@
-import { models } from "../../../../db.js"
-import sendMail from "../../../../emails/send.js";
+import { models } from "../../../../db.js";
+import sendMail from '../../../../emails/send.js'
 import triggerToken from '../../../../utils/triggerToken.js';
 import { addMinutes } from 'date-fns';
-const { Token } = models
+const { Code } = models
 
 const createCode = async (email)=>{
     const now = new Date()
     const expire = addMinutes(now,15)
-    const active = await Token.findAll()
+    const active = await Code.findAll()
 
     if(active.length > 0){
         active.map(t => {
-            Token.update(
+            Code.update(
                 {active:false},
                 {
                     where:{
@@ -23,7 +23,7 @@ const createCode = async (email)=>{
     }
 
     const currentToken = triggerToken()
-    Token.create({
+    Code.create({
         code:currentToken,
         expiresAt:expire
     })

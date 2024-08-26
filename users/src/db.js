@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 import { Sequelize } from 'sequelize';
 import userModel from './models/user.js';
-import tokenModel from './models/token.js';
+import codeModel from './models/code.js';
 
 config()
 
@@ -22,10 +22,10 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 // })
 
 const User = userModel(sequelize)
-const Token = tokenModel(sequelize)
+const Code = codeModel(sequelize)
 
-User.hasMany(Token,{foreignKey:'userId'})
-Token.belongsTo(User,{foreignKey:'userId'})
+User.hasMany(Code,{foreignKey:'userId'})
+Code.belongsTo(User,{foreignKey:'userId'})
 
 const models = {
   ...sequelize.models,

@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default (sequelize)=>{
-    const Token = sequelize.define('Token',{
+    const Code = sequelize.define('Code',{
         code:{
             type:DataTypes.STRING,
             allowNull:false
@@ -15,5 +15,5 @@ export default (sequelize)=>{
             defaultValue:true
         }
     })
-    return Token
+    return Code
 }
