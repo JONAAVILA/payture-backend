@@ -12,23 +12,21 @@ const handleCheckCode = async (code,token)=>{
         })
         if(error) throw new Error(false);
 
-        jwt.verify(
+        const decoded = jwt.verify(
             token,
             SECRET_KEY,
-            async ({err,decoded})=>{
-                if(err) throw new Error('Invalid access');
-                
-                const check = await Code.findOne({
-                    where:{
-                        code:code,
-                        active:true,
-                        email:decoded.email
-                    }
-                })
-                if(check) return true
-                return false
-            }
         )
+        
+        const check = await Code.findOne({
+            where:{
+                code:code,
+                active:true,
+                email:decoded.email
+            }
+        })
+        if(check) return true
+        console.log(check)
+        return false
     } catch (error) {
         return false
     }
