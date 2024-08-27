@@ -6,6 +6,10 @@ export default (sequelize)=>{
             type:DataTypes.STRING,
             allowNull:false
         },
+        email:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
         expiresAt:{
             type:DataTypes.DATE,
             allowNull:false
