@@ -19,9 +19,9 @@ router.get('/login',getlogin)
 
 router.post('/users/check',checkUsers)
 router.post('/users/check/email',checkEmail)
+router.post('/singin/code',sendCode)
 router.post('/users/update',updateUsers)
 router.post('/singin',createUser)
 router.post('/singin/check/code',checkCode)
-router.post('/singin/code',sendCode)
 
 export default router;

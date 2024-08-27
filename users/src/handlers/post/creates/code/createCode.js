@@ -25,6 +25,7 @@ const createCode = async (email)=>{
     const currentToken = triggerToken()
     Code.create({
         code:currentToken,
+        email:email,
         expiresAt:expire
     })
     await sendMail(email,currentToken)
