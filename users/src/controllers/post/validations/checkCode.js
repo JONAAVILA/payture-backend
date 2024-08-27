@@ -2,8 +2,10 @@ import handleCheckCode from "../../../handlers/post/validations/handleCheckCode.
 
 const checkCode = async (req,res)=>{
     try {
+        const headers = req.headers['authorization']
+        const token = headers.split(' ')[1]
         const { code } = req.body
-        const check = await handleCheckCode(code)
+        const check = await handleCheckCode(code,token)
         res.status(200).json(check)
     } catch (error) {
         res.status(200).json({error:error.message})

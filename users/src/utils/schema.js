@@ -42,7 +42,10 @@ export const schema = Joi.object({
         .max(50),
     description:Joi.string()
         .min(20)
-        .max(80)
+        .max(80),
+    code:Joi.string()
+        .min(6)
+        .max(6)
 }).or( 
        'uuid',
        'name',
@@ -55,5 +58,6 @@ export const schema = Joi.object({
        'state',
        'country',
        'tittle',
-       'description'
+       'description',
+       'code'
     )

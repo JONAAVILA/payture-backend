@@ -3,8 +3,8 @@ import handlerSendCode from "../../../handlers/post/creates/code/handlerSendCode
 const sendCode = async (req,res)=>{
     try {
         const { email } = req.body
-        const response = await handlerSendCode(email)
-        res.status(200).json(response)
+        const code = await handlerSendCode(email)
+        res.status(200).json(code)
     } catch (error) {
         res.status(400).json({error:error.message})
     }

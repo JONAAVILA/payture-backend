@@ -18,10 +18,10 @@ const router = Router()
 router.get('/login',getlogin)
 
 router.post('/users/check',checkUsers)
-router.post('/users/check/code',checkCode)
 router.post('/users/check/email',checkEmail)
-router.post('/users/create',createUser)
-router.post('/login/signin',updateUsers)
-router.post('/login/singin/code',sendCode)
+router.post('/users/update',updateUsers)
+router.post('/singin',createUser)
+router.post('/singin/check/code',checkCode)
+router.post('/singin/code',sendCode)
 
 export default router;
