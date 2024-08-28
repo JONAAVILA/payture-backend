@@ -10,7 +10,7 @@ server.use(morgan("dev"));
 server.use(express.json());
 server.use(cors());
 
-server.use('/login/singin/token',limiterCodes)
+server.use('/singin/check/code',limiterCodes)
 server.use('/login/signin',limiterLogin)
 
 server.use(router);
