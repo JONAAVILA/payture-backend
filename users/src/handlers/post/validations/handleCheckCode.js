@@ -25,8 +25,7 @@ const handleCheckCode = async (code,token)=>{
                 email:decoded.email
             }
         })
-        // console.log('check:',check,'now:',now)
-        if(check.expiresAt < now) return 'Expire time'
+        if(check.expiresAt < now) return 'Your time has expired'
         return true
     } catch (error) {
         return false
