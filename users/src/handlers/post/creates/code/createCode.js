@@ -6,7 +6,7 @@ const { Code } = models
 
 const createCode = async (email)=>{
     const now = new Date()
-    const expire = addMinutes(now,15)
+    const expire = addMinutes(now,3)
     const active = await Code.findAll()
 
     if(active.length > 0){

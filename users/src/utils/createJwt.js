@@ -12,7 +12,7 @@ const createJwt = (email)=>{
         payload,
         SECRET_KEY,
         {
-            expiresIn:'15m'
+            expiresIn:'6m'
         }
     )
     return token

@@ -16,7 +16,8 @@ const handleCheckCode = async (code,token)=>{
             token,
             SECRET_KEY,
         )
-        
+
+        const now = new Date()
         const check = await Code.findOne({
             where:{
                 code:code,
@@ -24,9 +25,9 @@ const handleCheckCode = async (code,token)=>{
                 email:decoded.email
             }
         })
-        if(check) return true
-        console.log(check)
-        return false
+        // console.log('check:',check,'now:',now)
+        if(check.expiresAt < now) return 'Expire time'
+        return true
     } catch (error) {
         return false
     }
