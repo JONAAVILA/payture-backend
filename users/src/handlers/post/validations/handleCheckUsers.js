@@ -7,17 +7,18 @@ const handleCheckUsers = async (userName)=>{
         const { error } = schema.validate({
             userName:userName
         })
-        if(error) throw new Error(false)
-          
+        if(error) throw new Error('Error')
+            
         const check = await User.findOne({
             where:{
                 userName:userName
-            }
+            },
+            attributes:['userName']
         })
-        if(check) throw new Error(false);
+        if(check !== null) return false;
         return true
     } catch (error) {
-        return {error:error.message}
+        return false
     }
 }
 
