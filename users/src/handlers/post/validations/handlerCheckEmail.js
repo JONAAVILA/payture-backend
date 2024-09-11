@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize';
 import { models } from '../../../db.js';
 import { schema } from '../../../utils/schema.js';
+import createJwt from '../../../utils/createJwt.js';
 
 const { User } = models;
  
@@ -11,6 +12,8 @@ const handlerCheckEmail = async (email)=>{
         })
         if(error) return false
 
+        const token = createJwt(email)
+
         const match = await User.findOne({
             where:{
                 email:{
@@ -19,7 +22,7 @@ const handlerCheckEmail = async (email)=>{
             }
         })
         if(match) return false
-        return true
+        return token
     } catch (error) {
         return false
     }
