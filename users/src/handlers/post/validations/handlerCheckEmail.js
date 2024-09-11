@@ -10,7 +10,7 @@ const handlerCheckEmail = async (email)=>{
         const { error } = schema.validate({
             email:email
         })
-        if(error) return false
+        if(error) throw new Error(false)
 
         const token = createJwt(email)
 
@@ -21,7 +21,8 @@ const handlerCheckEmail = async (email)=>{
                 }
             }
         })
-        if(match) return false
+        if(match) throw new Error(false);
+         false
         return token
     } catch (error) {
         return false
