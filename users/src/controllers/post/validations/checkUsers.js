@@ -2,8 +2,10 @@ import handleCheckUsers from '../../../handlers/post/validations/handleCheckUser
 
 const checkUsers = async (req,res)=>{
     try {
+        const headers = req.headers['authorazation']
+        const token = headers.split(' ')[1]
         const { userName } = req.body
-        const check = await handleCheckUsers(userName)
+        const check = await handleCheckUsers(userName,token)
         res.status(200).json(check)
     } catch (error) {
         res.status(400).json({error:error.message})

@@ -1,9 +1,18 @@
 import { models } from "../../../db.js";
 import { schema } from "../../../utils/schema.js";
-const { User } = models
+import jwt from 'jsonwebtoken';
 
-const handleCheckUsers = async (userName)=>{
+const { User } = models
+const { SECRET_KEY } = process.env
+
+const handleCheckUsers = async (userName,token)=>{
     try {
+        const decode = jwt.verify(
+            token,
+            SECRET_KEY,
+        )
+        if(decode.email.length < 1) throw new Error('Invalid token');
+        
         const { error } = schema.validate({
             userName:userName
         })
@@ -15,6 +24,7 @@ const handleCheckUsers = async (userName)=>{
             },
             attributes:['userName']
         })
+  
         if(check !== null) return false;
         return true
     } catch (error) {
