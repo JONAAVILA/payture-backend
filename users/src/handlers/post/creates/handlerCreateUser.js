@@ -1,11 +1,21 @@
 import { models } from '../../../db.js';
 import { schema } from '../../../utils/schema.js';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 const { User } = models;
-
 const SALT_ROUNDS = Number(process.env)
+const { SECRET_KEY } = process.env
 
-const handleCreateUser = async (id,name,userName,email,password )=>{
+const handleCreateUser = async (id,name,userName,email,password,token )=>{
+    const decode = await jwt.verify(
+        token,
+        SECRET_KEY
+    )
+
+    console.log('DECODED:',decode)
+    if(decode.email.length < 1) throw new Error('Invalid token');
+    
     const { error } = schema.validate({
         uuid:id,
         name:name,
@@ -13,7 +23,7 @@ const handleCreateUser = async (id,name,userName,email,password )=>{
         email:email,
         password:password
     })
-    if(error) throw new Error('Invalid parameters')
+    if(error) throw new Error('Invalid parameters or are missing')
 
     const passwordHashed = await bcrypt.hashSync(password,SALT_ROUNDS)
 
