@@ -4,9 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 const createUser = async (req,res)=>{
     try {
         const { name,userName,email,password } = req.body
+        console.log('headers',req.headers)
         const headers = req.headers['authorazation']
         const token = headers.split(' ')[1]
-        console.log(token)
+        console.log('TOKEN:',token)
         const id = uuidv4()
         const response = await handleCreateUser(id,name,userName,email,password,token )
         res.status(200).json(response)
