@@ -13,7 +13,6 @@ const handleCreateUser = async (id,name,userName,email,password,token )=>{
         SECRET_KEY
     )
 
-    console.log('DECODED:',decode)
     if(decode.email.length < 1) throw new Error('Invalid token');
     
     const { error } = schema.validate({
