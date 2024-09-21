@@ -18,8 +18,8 @@ const handlerSendCode = async (token)=>{
         if(error) throw new Error("Invalid email");
 
         const codes = await createCode(email)
-        if(!codes) throw new Error('Something went wrong');
-        return true
+        if(codes != true) throw new Error(codes);
+        return codes
     } catch (error) {
         return {error:error.message}
     }

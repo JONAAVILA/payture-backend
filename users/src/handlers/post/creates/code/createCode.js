@@ -24,19 +24,19 @@ const createCode = async (email)=>{
         }
     })
 
+    if(active.length > 3) return 'Llegaste al límite mensual de códigos'
 
-    if(active.length > 0){
-        active.map(t => {
-            Code.update(
-                {active:false},
-                {
-                    where:{
-                        code:t.dataValues.code
-                    }
+    active.map(t => {
+        Code.update(
+            {active:false},
+            {
+                where:{
+                    code:t.dataValues.code
                 }
-            )
-        })
-    }
+            }
+        )
+    })
+
 
     const currentToken = triggerToken()
     Code.create({
