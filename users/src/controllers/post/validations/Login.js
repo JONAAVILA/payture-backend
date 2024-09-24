@@ -1,6 +1,6 @@
-import handlerLogin from "../../handlers/get/handlerLogin.js";
+import handlerLogin from "../../../handlers/post/validations/handlerLogin.js";
 
-const getlogin = async (req,res)=>{
+const login = async (req,res)=>{
     try {
         const { password,userName } = req.body
         const access = await handlerLogin(password,userName)
@@ -10,4 +10,4 @@ const getlogin = async (req,res)=>{
     }
 }
 
-export default getlogin
+export default login
