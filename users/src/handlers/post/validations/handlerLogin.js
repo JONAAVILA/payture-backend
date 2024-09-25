@@ -1,11 +1,20 @@
 import { models } from '../../db.js';
 import { schema } from '../../utils/schema.js';
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken';
 
 const { User } = models
+const { SECRET_KEY } = process.env
 
-const handlerLogin = async (password,userName)=>{
+const handlerLogin = async (password,userName,token)=>{
     try {
+        const decode = await jwt.verify({
+            token,
+            SECRET_KEY
+        })
+
+        const email = decode.email
+
         const { error } = schema.validate({
             userName:userName,
             password:password
@@ -15,7 +24,11 @@ const handlerLogin = async (password,userName)=>{
         const user = await User.findOne({
             where:{
                 userName:userName,
-            }
+                email:email
+            },
+            attributes:[
+                'password'
+            ]
         })
         const passwordCompare = await bcrypt.compare(password,user.password)
         return passwordCompare
